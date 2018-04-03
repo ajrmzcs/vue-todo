@@ -37,16 +37,20 @@ export default {
     tasks () {
       return this.$bus.tasks
     }
-  }, 
+  },
   methods: {
     toggleTask (id) {
       const taskIndex = this.tasks.findIndex(task => task.id === id)
+
+      console.log(this.tasks[taskIndex]['complete']);
 
       if (this.tasks[taskIndex]['complete']) {
         this.tasks[taskIndex]['complete'] = false
       } else {
         this.tasks[taskIndex]['complete'] = true
       }
+      
+      // this.$forceUpdate();
       // Patch
     },
     deleteTask (id) {
